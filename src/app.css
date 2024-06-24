@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+button {
+    @apply bg-pink-200 rounded-full w-16 h-16; 
+    
+}
