@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 button {
-    @apply bg-pink-200 rounded-full w-16 h-16; 
+    @apply bg-[#e0dedb] rounded-full w-12 h-12 text-xl shadow-lg; 
     
 }
