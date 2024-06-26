@@ -1,3 +1,25 @@
+<script lang="ts">
+    import Addtion from "$lib/icons/addtion.svelte";
+    import Backspace from "$lib/icons/backspace.svelte";
+import Division from "$lib/icons/division.svelte";
+    import Equal from "$lib/icons/equal.svelte";
+import Minus from "$lib/icons/minus.svelte";
+    import Multiplication from "$lib/icons/multiplication.svelte";
+import Squareroot from "$lib/icons/squareroot.svelte";
+
+function addtoEquation (value:string ) {
+equation+=value;
+}
+
+function backspace(){
+eqution=equation.substring(0, eqution.length - 1);
+
+}
+ 
+
+let equation :string="";
+
+</script>
 <svelte:head>
 
 <title>
@@ -6,34 +28,50 @@
 
 </svelte:head>
 
-    <div  class="bg-white min-h-fit w-fit  rounded-3xl grid grid-cols-4  gap-1  p-5  text-lg font-semibold text-xl shadow-2xl"> 
+    <div  class="bg-white  min-h-fit w-fit  rounded-3xl grid grid-cols-4  gap-1  p-5  text-lg font-semibold text-xl shadow-2xl "> 
         <div  class="bg-[#a2d2ff] rounded-full col-span-4 h-12  flex items-center px-5 mb-2 text-white ">
-           5555 
+            
 
+            {equation}
 
 
         </div>
- <button class="bg-[#f7d9e4]">%</button>
-<button class="bg-[#f7d9e4]">√</button>
-<button class="bg-[#f7d9e4]">CE </button>
-<button class="bg-[#b5d9f7]  text-white">C </button>
-<button>7</button>
-<button>8</button>
-<button>9</button>
-<button class="bg-[#c1f1a5]  text-white">-</button>
-<button>4</button>
-<button>5</button>
-<button>6</button>
-<button class="bg-[#93f0ce]  text-white" >÷ </button>
-<button>1</button>
-<button>2</button>
-<button>3</button>
-<button class="bg-[#faaac7]  text-white">×</button>
-<button>.</button>
-<button>0</button>
-<button class="bg-[#f7d9e4] ">=</button>
-<button class="bg-[#ffc8dd]  text-white ">+</button>
 
+ <button on:click={()=>addtoEquation("/100")} class="bg-[#f7d9e4] hover:bg-[#f2ccda]">%</button>
+<button on:click={()=> backspace()} class="bg-[#f7d9e4]  hover:bg-[#f2ccda] ">
+<Backspace/>
+
+</button>
+<button class="bg-[#f7d9e4]  hover:bg-[#f2ccda]">CE </button>
+<button class="bg-[#b5d9f7] hover:bg-[#a8cfef] text-white">C </button>
+<button on:click={()=>addtoEquation('7')}>7</button>
+<button on:click={()=>addtoEquation('8')}>8</button>
+<button on:click={()=>addtoEquation('9')}>9</button>
+<button  on:click={()=>addtoEquation(' - ')} class="bg-[#c1f1a5] hover:bg-[#b3eb95] text-white">
+<Minus/>
+</button>
+<button on:click={()=>addtoEquation('4')}>4</button>
+<button on:click={()=>addtoEquation('5')}>5</button>
+<button on:click={()=>addtoEquation('6')}>6</button>
+<button  on:click={()=>addtoEquation('/')} class="bg-[#afe690] hover:bg-[#9dd27f] text-white"> 
+<Division/>
+</button>
+<button on:click={()=>addtoEquation('1')}>1</button>
+<button on:click={() => addtoEquation('2')}>2</button>
+<button on:click={() => addtoEquation('3')}>3</button>
+<button on:click={() => addtoEquation(' * ')} class="bg-[#faaac7] hover:bg-[#ee9cba] text-white">
+    <Multiplication />
+</button>
+
+<button on:click={()=>addtoEquation('.')}>.</button>
+<button on:click={()=>addtoEquation('0')}>0</button>
+<button class="bg-[#f7d9e4] hover:bg-[#e1becb] ">
+<Equal/>
+</button>
+<button on:click={()=>addtoEquation(' + ')} class="bg-[#ffc8dd] hover:bg-[#f0b7cd] text-white ">
+   <Addtion/>
+
+</button>
 
     </div>
 
