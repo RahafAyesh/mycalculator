@@ -6,7 +6,7 @@ import Division from "$lib/icons/division.svelte";
 import Minus from "$lib/icons/minus.svelte";
     import Multiplication from "$lib/icons/multiplication.svelte";
 import Squareroot from "$lib/icons/squareroot.svelte";
-
+import {onMount} from "svelte";
 function addtoEquation (value:string ) {
 equation+=value;
 }
@@ -50,6 +50,8 @@ equation= answer;
 let equation :string="";
 
 function onKeyDown(e: KeyboardEvent){
+new Audio('/click.mp3').play();
+
 let button = document.getElementById(e.key);
 button?.click();
 button?.focus();
@@ -59,6 +61,16 @@ setTimeout(()=>{
     document.activeElement?.blur()    } ,100)
 }
 
+onMount(() =>{
+let allButtons = document.getElementsByTagName ('button');
+for(let i=0;i< allButtons.length;i++){
+    allButtons[i].addEventListener('click',()=>{
+
+        new Audio('/buttonclick.mp3').play();
+    
+    });
+}
+});
 </script>
 <svelte:head>
 
